@@ -1,20 +1,33 @@
-const express = require('express');
+const express = require("express");
 
-const immobile = require('../services/immobileService')
+const immobileController = require("../controllers/immobileController");
+const authentication = require("../middlewares/authentication");
+const dataValidation = require("../middlewares/immobileValidation");
 
 const router = express.Router();
 
-router.get('/')
+router.get("/", immobileController.getAll);
 
-router.put('/:id');
+router.get("/:id", immobileController.findOne);
 
-router.post('/', async (req, res) =>{
-  const { address } = req.body;
-  const newImmobile = await immobile(address);
-  console.log(newImmobile)
-  res.status(200).json(newImmobile)
-});
+router.put(
+  "/:immobileId",
+  authentication.validation,
+  dataValidation,
+  immobileController.updateImmobile
+);
 
-router.delete('/:id')
+router.post(
+  "/",
+  authentication.validation,
+  dataValidation,
+  immobileController.create
+);
 
-module.exports = router
+router.delete(
+  "/:immobileId",
+  authentication.validation,
+  immobileController.deleteImmobile
+);
+
+module.exports = router;
