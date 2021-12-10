@@ -7,7 +7,7 @@ const tokenGenerator = require("../helpers/tokenGenerator");
 const createUser = rescue(async (req, res) => {
   const { name, email, password } = req.body;
   await userServices.createUser(name, email, password);
-  res.status(200).json({ message: `The user ${name} has been registered` });
+  res.status(201).json({ message: `The user ${name} has been registered` });
 });
 
 const login = rescue(async (req, res) => {

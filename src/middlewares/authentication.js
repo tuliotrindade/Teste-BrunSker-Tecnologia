@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const usersService = require("../services/userServices");
 const rescue = require("express-rescue");
 
-const SECRET = process.env.SECRET;
+const SECRET = 'temumsegredoaqui';
 
 const validation = rescue(async (req, res, next) => {
   const token = req.headers.authorization;

@@ -1,10 +1,14 @@
 const jwt = require("jsonwebtoken");
 
-const SECRET = process.env.SECRET;
+const SECRET = 'temumsegredoaqui'
 
 const encriptedToken = (data) => {
-  const token = jwt.sign(data, SECRET);
-  return token;
+  try {
+    const token = jwt.sign(data, SECRET);
+    return token;
+  } catch (error) {
+    console.log(error.message);
+  }
 };
 
 module.exports = encriptedToken;

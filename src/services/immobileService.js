@@ -29,9 +29,9 @@ const findOne = async (id) => {
 
 const updateImmobile = async (data) => {
   try {
-    const { immobileId, address, city, cep } = data;
+    const { immobileId, address, city, cep, value, internalArea, type } = data;
     const [updatedImmobile] = await immobile.update(
-      { address, city, cep },
+      { address, city, cep, value, internalArea, type },
       { where: { id: immobileId } }
     );
     return updatedImmobile;

@@ -3,8 +3,8 @@ const rescue = require("express-rescue");
 
 const create = rescue(async (req, res) => {
   const { id } = req;
-  const { city, address, cep } = req.body;
-  const data = { creator_id: id, city, address, cep };
+  const { city, address, cep, value, internalArea, type } = req.body;
+  const data = { creator_id: id, city, address, cep, value, internalArea, type  };
   const newImmobile = await immobileService.newImmobile(data);
   return res.status(201).json({ Immobile: newImmobile });
 });
@@ -35,8 +35,8 @@ const updateImmobile = rescue(async (req, res) => {
       .status(401)
       .json({ message: "Only the creator can update the immobile" });
   }
-  const { city, address, cep } = req.body;
-  const data = { city, address, cep, immobileId };
+  const { city, address, cep, value, internalArea, type  } = req.body;
+  const data = { city, address, cep, immobileId, value, internalArea, type  };
   await immobileService.updateImmobile(data);
   return res
     .status(200)

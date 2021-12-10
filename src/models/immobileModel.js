@@ -20,6 +20,18 @@ const immobiles = database.define("immobiles", {
     type: Sequelize.STRING,
     allowNull: false,
   },
+  value: {
+    type: Sequelize.INTEGER,
+    allowNull: false
+  },
+  type: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  internalArea: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
   creator_id: {
     type: Sequelize.INTEGER,
     allowNull: false,
