@@ -59,7 +59,7 @@ Abaixo segue um exemplo de todo fluxo do script e funcionamento dos endpoints.
 ### Para adicionar novos imoveis, atualizar ou deletar é preciso estar autenticado com o token retornado apos login, apenas o criador de um imovel pode o atualizar ou deletar
 
 A autenticação deve ser feita por meio da chave authorization no Header da requisição.
-<img src="/images/authentication.png" alt="autenticação"/>
+<img src="/images/authorization.png" alt="autenticação"/>
 
 ### Adicionando um novo imovel 
 
